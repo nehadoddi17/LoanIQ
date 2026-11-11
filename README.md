@@ -9,7 +9,7 @@ It combines rule-based lending workflows, structured financial data, automated v
 
 ---
 
-## 1. Problem Statement
+## 1. 🧩 Problem Statement
 
 Financial institutions process thousands of loan applications involving applicant information, employment details, income sources, existing credit obligations, financial documents and repayment records.
 
@@ -27,7 +27,7 @@ Managing these interconnected processes creates several operational challenges:
 
 **LoanIQ addresses these challenges by providing a centralized lending workflow with automated business validations, deterministic loan decisions and anomaly detection.**
 
-## 2. Real-World Business Use Cases
+## 2. 🏦 Real-World Business Use Cases
 
 LoanIQ demonstrates workflows that are relevant to:
 
@@ -51,7 +51,7 @@ LoanIQ demonstrates workflows that are relevant to:
 | Risk & Compliance Team | Investigates anomalies and data inconsistencies |
 | System Administrator | Monitors system activity, application records and system health |
 
-## 3. End-to-End Loan Lifecycle
+## 3. 🔄 End-to-End Loan Lifecycle
 
 LoanIQ covers the following lending workflow:
 
@@ -66,7 +66,7 @@ LoanIQ covers the following lending workflow:
 9. **Disbursement Management** – Maintain simulated disbursement records.
 10. **Risk Intelligence** – Identify anomalies and compare detection results against ground truth.
 
-## 4. Key Features
+## 4. ✨ Key Features
 
 ### Applicant Management
 - Maintain applicant profiles and contact information.
@@ -135,7 +135,7 @@ The detection engine supports:
 - Ground-truth comparison.
 - Precision, recall and accuracy evaluation.
 
-## 5. System Architecture
+## 5. 🏗️ System Architecture
 
 ```mermaid
 flowchart TB
@@ -190,7 +190,7 @@ flowchart TB
 
 The React frontend communicates with FastAPI through REST endpoints. FastAPI handles business logic and accesses PostgreSQL through SQLAlchemy. The frontend never connects directly to the database.
 
-## 6. Technology Stack
+## 6.  🛠️ Technology Stack
 
 | Category | Technologies |
 |---|---|
@@ -207,7 +207,7 @@ The React frontend communicates with FastAPI through REST endpoints. FastAPI han
 | Data Formats | CSV, JSONL, SQL |
 | Version Control | Git, GitHub |
 
-## 7. Synthetic Dataset
+## 7. 📊 Synthetic Dataset
 
 LoanIQ includes a reproducible synthetic lending dataset designed to simulate realistic lending operations at scale.
 
@@ -273,7 +273,7 @@ These results demonstrate correct identification of the deliberately constructed
 
 **Evaluation limitation:** The results are based on controlled synthetic data. They do not establish equivalent performance on real-world lending data.
 
-## 9. Database Design
+## 9. 🗄️ Database Design
 
 The PostgreSQL database consists of 15 relational tables:
 
