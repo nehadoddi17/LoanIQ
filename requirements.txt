@@ -12,20 +12,20 @@ sqlalchemy
 psycopg2-binary
 alembic
 
-# AI
+# AI / LLM
 openai
+groq
 
-# Frontend
-streamlit
-plotly
-
-# Data processing
+# Data Processing
 pandas
 numpy
+
+# HTTP Client
 httpx
 
 # Testing
 pytest
+
 
 
 
