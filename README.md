@@ -512,6 +512,22 @@ Potential improvements include:
 - Cloud deployment and CI/CD integration.
 - External credit bureau and document verification integrations.
 
+
+## 🎬 Project Demo
+
+Watch the complete LoanIQ walkthrough:
+
+[▶ Watch LoanIQ Demo Video](https://drive.google.com/file/d/17jphuQK5bwol40dx4ggrwbWNOMvjMzgi/view?usp=sharing)
+
+This demo covers:
+- Loan application management
+- Applicant and employment details
+- Affordability assessment
+- Automated loan decision engine
+- Risk intelligence and anomaly detection
+- Dashboard and analytics
+
+
 ## 16. Repository
 
 **GitHub:** https://github.com/nehadoddi17/LoanIQ
