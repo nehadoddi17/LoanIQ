@@ -1,1106 +1,521 @@
-\# LoanIQ — Intelligent Lending \& Risk Intelligence Platform
+# LoanIQ
+### Intelligent Lending & Risk Intelligence Platform
+
+**Automating loan operations. Strengthening financial risk intelligence.**
+
+LoanIQ is an end-to-end intelligent lending operations platform that streamlines the loan lifecycle, from applicant onboarding and document verification to affordability assessment, loan decisions, repayment management and anomaly detection.
+
+It combines rule-based lending workflows, structured financial data, automated validations and risk intelligence to help financial institutions improve operational efficiency, data quality and lending transparency.
 
+---
 
+## 1. Problem Statement
 
-\*\*An end-to-end lending operations platform with automated affordability assessment, rule-based loan decisions, repayment management, and anomaly detection.\*\*
+Financial institutions process thousands of loan applications involving applicant information, employment details, income sources, existing credit obligations, financial documents and repayment records.
+
+Managing these interconnected processes creates several operational challenges:
 
+- Manual verification of applicant and financial information.
+- Incomplete or inconsistent application documents.
+- Incorrect loan amount and tenure validation.
+- Inaccurate affordability assessments.
+- Loan approvals performed before mandatory verification.
+- Repayment schedule reconciliation errors.
+- Conflicting income information.
+- Duplicate disbursement records.
+- Limited visibility into suspicious lending activities.
 
+**LoanIQ addresses these challenges by providing a centralized lending workflow with automated business validations, deterministic loan decisions and anomaly detection.**
 
-!\[Python](https://img.shields.io/badge/Python-3.11+-blue)
+## 2. Real-World Business Use Cases
 
-!\[React](https://img.shields.io/badge/Frontend-React-61DAFB)
+LoanIQ demonstrates workflows that are relevant to:
 
-!\[FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688)
+| Business Domain | Use Case |
+|---|---|
+| Retail Banking | Personal, home and other retail loan processing |
+| Digital Lending | Automated applicant onboarding and loan evaluation |
+| Credit Risk Management | Credit score and affordability validation |
+| Loan Operations | Document verification and application tracking |
+| Financial Auditing | Repayment reconciliation and duplicate detection |
+| Risk & Compliance | Identifying suspicious or inconsistent financial records |
 
-!\[PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791)
+### Intended Users and Actors
 
-!\[Dataset](https://img.shields.io/badge/Synthetic%20Applicants-10%2C000-purple)
+| Actor | Responsibilities |
+|---|---|
+| Loan Applicant | Submits personal, employment and financial information |
+| Loan Officer | Reviews applications and applicant documents |
+| Credit Risk Analyst | Evaluates affordability, creditworthiness and risk indicators |
+| Loan Operations Team | Manages loan processing, repayment schedules and disbursement records |
+| Risk & Compliance Team | Investigates anomalies and data inconsistencies |
+| System Administrator | Monitors system activity, application records and system health |
 
-!\[Applications](https://img.shields.io/badge/Loan%20Applications-6%2C000-orange)
+## 3. End-to-End Loan Lifecycle
 
+LoanIQ covers the following lending workflow:
 
+1. **Applicant Onboarding** – Register applicants and maintain personal information.
+2. **Employment & Income Verification** – Capture employment details and verified income sources.
+3. **Loan Product Selection** – Associate applications with eligible loan products.
+4. **Application Submission** – Record requested loan amount and repayment tenure.
+5. **Document Verification** – Track mandatory identity, address, bank and income documents.
+6. **Affordability Assessment** – Calculate EMI, existing obligations, debt-to-income ratio and disposable income.
+7. **Loan Decisioning** – Apply deterministic business rules to evaluate loan eligibility.
+8. **Repayment Scheduling** – Generate and reconcile repayment installments for approved applications.
+9. **Disbursement Management** – Maintain simulated disbursement records.
+10. **Risk Intelligence** – Identify anomalies and compare detection results against ground truth.
 
-\---
+## 4. Key Features
 
+### Applicant Management
+- Maintain applicant profiles and contact information.
+- Store credit scores and verification status.
+- Retrieve applicant information through REST APIs.
 
+### Loan Product & Application Management
+- Configure multiple loan products.
+- Define minimum and maximum loan amounts.
+- Configure interest rates and eligible repayment tenures.
+- Validate application amounts and repayment terms.
+- Track application statuses.
 
-\## 1. Project Overview
+### Document Verification
+- Maintain application-level document records.
+- Track verification statuses.
+- Validate mandatory documentation before loan approval.
 
+### Affordability Assessment
+- Calculate verified monthly income.
+- Consider existing financial obligations.
+- Calculate reducing-balance EMI.
+- Evaluate debt-to-income ratio.
+- Calculate disposable income.
+- Generate affordability assessment results.
 
+### Deterministic Loan Decision Engine
 
-LoanIQ is an intelligent lending operations platform designed to streamline the loan lifecycle, from applicant onboarding to loan evaluation, approval, repayment scheduling, and risk monitoring.
+The decision engine evaluates applications using predefined business rules:
 
+- Product availability and eligibility.
+- Requested loan amount and tenure.
+- Credit score requirements and verification.
+- Mandatory document verification.
+- Affordability assessment results.
 
+It generates approval or rejection decisions and maintains decision history.
 
-Traditional lending workflows involve multiple manual activities, including applicant verification, income assessment, credit evaluation, document validation, affordability calculations, and repayment tracking.
+**Responsible lending principle:** Authoritative loan decisions are determined by predefined business rules. AI-generated recommendations or explanations, where introduced, should support human review and must not independently authorize loan approval or disbursement.
 
+### Repayment & Disbursement Management
+- Generate repayment schedules.
+- Calculate monthly installments.
+- Reconcile installment totals.
+- Maintain disbursement records.
+- Identify duplicate disbursement entries.
 
+Disbursement is simulated; no actual financial transactions are performed.
 
-LoanIQ brings these activities into a centralized platform and combines deterministic lending rules with automated anomaly detection to improve operational efficiency, transparency, and risk visibility.
-
-
-
-The platform uses a synthetic dataset containing 10,000 applicants and 6,000 loan applications to demonstrate lending workflows and evaluate anomaly detection capabilities.
-
-
-
-\## 2. Problem Statement
-
-
-
-Financial institutions process large volumes of loan applications and associated financial records. Managing these records manually can introduce several operational challenges:
-
-
-
-\- Inconsistent applicant and financial information.
-
-\- Incorrect loan tenure or requested amounts.
-
-\- Incomplete or unverified documentation.
-
-\- Incorrect affordability assessments.
-
-\- Loan approvals performed before mandatory checks.
-
-\- Repayment schedule inconsistencies.
-
-\- Duplicate disbursement records.
-
-\- Conflicting income information.
-
-
-
-LoanIQ addresses these challenges through automated validations, centralized data management, rule-based decisions, and risk intelligence.
-
-
-
-\## 3. Key Features
-
-
-
-\### Applicant Management
-
-\- Register and manage loan applicants.
-
-\- Maintain personal and contact information.
-
-\- Store credit scores and verification status.
-
-\- Retrieve applicant records through REST APIs.
-
-
-
-\### Loan Product Management
-
-\- Maintain multiple loan products.
-
-\- Configure minimum and maximum loan amounts.
-
-\- Define interest rates and eligible repayment tenures.
-
-\- Enforce product-specific eligibility criteria.
-
-
-
-\### Loan Application Management
-
-\- Create and manage loan applications.
-
-\- Associate applicants with loan products.
-
-\- Validate requested amounts and repayment tenures.
-
-\- Track application decision statuses.
-
-
-
-\### Document Management
-
-\- Manage application documents.
-
-\- Track document verification statuses.
-
-\- Validate mandatory documentation before approval.
-
-
-
-\### Affordability Assessment
-
-\- Calculate verified monthly income.
-
-\- Consider existing financial obligations.
-
-\- Calculate estimated monthly loan EMI.
-
-\- Evaluate debt-to-income ratio.
-
-\- Calculate disposable income.
-
-\- Generate affordability assessment results.
-
-
-
-\### Automated Loan Decision Engine
-
-\- Validate loan product eligibility.
-
-\- Verify credit score requirements.
-
-\- Validate loan amount and tenure.
-
-\- Check mandatory document verification.
-
-\- Evaluate affordability results.
-
-\- Generate approval or rejection decisions with decision history.
-
-
-
-\*\*Important:\*\* Authoritative loan decisions are based on deterministic business rules. AI-generated explanations, if added in future iterations, are not intended to independently approve or reject loans.
-
-
-
-\### Repayment Management
-
-\- Generate repayment schedules for approved applications.
-
-\- Calculate installment amounts.
-
-\- Maintain repayment installment records.
-
-\- Reconcile scheduled and payable amounts.
-
-
-
-\### Disbursement Management
-
-\- Maintain disbursement records.
-
-\- Validate application eligibility before disbursement.
-
-\- Detect duplicate disbursement records.
-
-
-
-Disbursement functionality is simulated; the platform does not transfer actual funds.
-
-
-
-\### Anomaly Detection \& Risk Intelligence
-
-
+### Anomaly Detection & Risk Intelligence
 
 LoanIQ implements five anomaly detection scenarios:
 
-
-
-| Anomaly Type | Description |
-
+| Anomaly Type | Business Scenario |
 |---|---|
+| `INVALID_LOAN_TENURE` | Requested tenure exceeds the permitted loan product range |
+| `SCHEDULE_RECONCILIATION_MISMATCH` | Repayment schedule totals do not reconcile |
+| `DECISION_BEFORE_REQUIRED_CHECKS` | Loan approval occurs before mandatory checks pass |
+| `INCOME_SOURCE_CONFLICT` | Conflicting amounts exist for the same income source |
+| `DUPLICATE_DISBURSEMENT` | Multiple disbursement records exist for one application |
 
-| INVALID\_LOAN\_TENURE | Loan tenure outside the permitted product range |
+The detection engine supports:
+- Deterministic anomaly identifiers using SHA-256.
+- Detection record creation and updates.
+- Active anomaly tracking.
+- Ground-truth comparison.
+- Precision, recall and accuracy evaluation.
 
-| SCHEDULE\_RECONCILIATION\_MISMATCH | Repayment schedule totals do not reconcile |
-
-| DECISION\_BEFORE\_REQUIRED\_CHECKS | Loan approval occurs without mandatory checks passing |
-
-| INCOME\_SOURCE\_CONFLICT | Conflicting records exist for the same income source |
-
-| DUPLICATE\_DISBURSEMENT | Multiple disbursement records exist for the same application |
-
-
-
-The anomaly detection engine:
-
-\- Identifies suspicious records.
-
-\- Generates deterministic anomaly identifiers.
-
-\- Maintains anomaly detection history.
-
-\- Updates previously detected cases.
-
-\- Compares detection results against ground-truth labels.
-
-
-
-\## 4. System Architecture
-
-
+## 5. System Architecture
 
 ```mermaid
+flowchart TB
+    U[Loan Officers / Risk Analysts / Administrators]
 
-flowchart TD
+    subgraph Frontend
+        R[React + Vite Dashboard]
+        C[Axios REST API Client]
+    end
 
-&#x20;   A\[Administrator / Loan Operations User]
+    subgraph Backend
+        F[FastAPI REST API]
+        S[Business Logic Services]
+        V[Pydantic Validation]
+        O[SQLAlchemy ORM]
+        A[Anomaly Detection Engine]
+        D[Decision & Affordability Engine]
+    end
 
-&#x20;   B\[React Frontend]
+    subgraph Data Layer
+        P[(PostgreSQL)]
+        G[Ground Truth Dataset]
+    end
 
-&#x20;   C\[FastAPI REST API]
-
-&#x20;   D\[Business Logic Services]
-
-&#x20;   E\[PostgreSQL Database]
-
-&#x20;   F\[Anomaly Detection Engine]
-
-&#x20;   G\[Ground Truth Evaluation]
-
-
-
-&#x20;   A --> B
-
-&#x20;   B --> C
-
-&#x20;   C --> D
-
-&#x20;   D --> E
-
-&#x20;   D --> F
-
-&#x20;   F --> E
-
-&#x20;   F --> G
-
+    U --> R
+    R --> C
+    C <--> F
+    F --> V
+    F --> S
+    S --> D
+    S --> A
+    S --> O
+    O <--> P
+    A --> G
+    A --> P
 ```
 
+### Architecture Responsibilities
 
-
-\### Architecture Components
-
-
-
-| Component | Technology | Responsibility |
-
+| Layer | Technology | Responsibility |
 |---|---|---|
-
-| Frontend | React + Vite | Dashboard and user interface |
-
-| Styling | CSS + Tailwind CSS | Responsive UI |
-
-| Charts | Recharts | Dashboard visualizations |
-
-| API Communication | Axios | Frontend-to-backend requests |
-
-| Backend | FastAPI | REST API and application orchestration |
-
-| ORM | SQLAlchemy | Database operations |
-
+| Presentation | React + Vite | Lending operations dashboard |
+| Styling | CSS + Tailwind CSS | Responsive user interface |
+| Visualization | Recharts | Dashboard charts and metrics |
+| API Communication | Axios | REST API integration |
+| API Layer | FastAPI | Request handling and API orchestration |
 | Validation | Pydantic | Request and response validation |
-
+| Business Logic | Python | Affordability, decision and anomaly services |
+| ORM | SQLAlchemy | Database interaction |
 | Database | PostgreSQL | Persistent lending data |
+| Data Engineering | Python, Pandas, Psycopg2 | Synthetic data generation, validation and loading |
 
-| Data Generation | Python, Pandas | Synthetic dataset generation |
+The React frontend communicates with FastAPI through REST endpoints. FastAPI handles business logic and accesses PostgreSQL through SQLAlchemy. The frontend never connects directly to the database.
 
-| Data Loading | Psycopg2 | Bulk CSV loading |
+## 6. Technology Stack
 
-| Documentation | Markdown | Project and data documentation |
+| Category | Technologies |
+|---|---|
+| Frontend | React, Vite, JavaScript |
+| UI & Styling | CSS, Tailwind CSS, Lucide React |
+| Charts | Recharts |
+| API Integration | Axios |
+| Backend | Python, FastAPI |
+| Data Validation | Pydantic |
+| ORM | SQLAlchemy |
+| Database | PostgreSQL |
+| Data Processing | Pandas |
+| Bulk Data Loading | Psycopg2 |
+| Data Formats | CSV, JSONL, SQL |
+| Version Control | Git, GitHub |
 
+## 7. Synthetic Dataset
 
+LoanIQ includes a reproducible synthetic lending dataset designed to simulate realistic lending operations at scale.
 
-The frontend communicates with FastAPI through REST APIs. FastAPI interacts with PostgreSQL through SQLAlchemy and the configured database connection.
-
-
-
-\## 5. Technology Stack
-
-
-
-\*\*Frontend\*\*
-
-\- React
-
-\- Vite
-
-\- JavaScript
-
-\- Tailwind CSS
-
-\- Axios
-
-\- React Router
-
-\- Lucide React
-
-\- Recharts
-
-
-
-\*\*Backend\*\*
-
-\- Python
-
-\- FastAPI
-
-\- SQLAlchemy
-
-\- Pydantic
-
-\- Uvicorn
-
-
-
-\*\*Database\*\*
-
-\- PostgreSQL
-
-\- SQL
-
-
-
-\*\*Data Engineering\*\*
-
-\- Python
-
-\- Pandas
-
-\- Psycopg2
-
-\- CSV and JSONL
-
-\- SHA-256 checksums
-
-
-
-\## 6. Synthetic Dataset
-
-
-
-LoanIQ includes a reproducible synthetic lending dataset.
-
-
-
-\*\*Dataset configuration\*\*
-
-\- Random seed: 42
-
-\- Generator version: 2.1
-
-\- Applicants: 10,000
-
-\- Loan applications: 6,000
-
-\- Loan products: 4
-
-\- Ground-truth records: 30,000
-
-
-
-\### Dataset Statistics
-
-
+### Dataset Overview
 
 | Entity | Records |
-
 |---|---:|
-
 | Applicants | 10,000 |
-
-| Employment | 10,000 |
-
+| Employment Records | 10,000 |
 | Income Sources | 10,120 |
-
 | Loan Products | 4 |
-
 | Loan Applications | 6,000 |
-
 | Credit Facilities | 6,000 |
-
 | Application Documents | 24,000 |
-
 | Affordability Checks | 6,000 |
-
 | Loan Decisions | 6,000 |
-
 | Repayment Schedules | 6,000 |
-
 | Repayment Installments | 589,395 |
-
 | Disbursements | 6,120 |
-
 | Anomaly Cases | 600 |
-
 | Ground Truth Labels | 30,000 |
 
+### Dataset Characteristics
 
+- Generator version: 2.1
+- Random seed: 42
+- Deterministic record identifiers.
+- Relational consistency across entities.
+- Normal operational records and deliberately injected anomaly scenarios.
+- Separate ground-truth labels for evaluation.
+- CSV exports with manifest and SHA-256 checksums.
 
-\### Dataset Design
+### Ground Truth Design
 
+The dataset includes 600 deliberately generated positive anomaly cases:
 
+- 120 invalid loan tenure cases.
+- 120 repayment schedule mismatch cases.
+- 120 premature approval cases.
+- 120 income source conflict cases.
+- 120 duplicate disbursement cases.
 
-The dataset includes both normal lending records and deliberately generated anomaly scenarios.
+The evaluation dataset contains 30,000 labels:
+- 600 positive cases.
+- 29,400 negative cases.
 
+## 8. Anomaly Detection Evaluation
 
+The anomaly detection engine was evaluated against the synthetic ground-truth dataset.
 
-There are 120 positive anomaly cases for each of the five anomaly categories, giving 600 positive cases.
-
-
-
-The ground-truth dataset contains:
-
-\- 600 positive anomaly labels.
-
-\- 29,400 negative anomaly labels.
-
-
-
-All records use deterministic identifiers and reproducible generation logic.
-
-
-
-\### Data Validation
-
-
-
-The dataset validation process checks:
-
-
-
-\- Primary key uniqueness.
-
-\- Foreign key integrity.
-
-\- Record counts.
-
-\- Business rule consistency.
-
-\- Loan amount and tenure constraints.
-
-\- Repayment schedule reconciliation.
-
-\- Anomaly label consistency.
-
-\- Anomaly identifier consistency.
-
-\- Actual anomaly conditions.
-
-
-
-\*\*Latest validation result: 63 checks passed, 0 failed.\*\*
-
-
-
-\## 7. Anomaly Detection Evaluation
-
-
-
-The anomaly detection engine was evaluated against the generated ground-truth dataset.
-
-
-
-| Metric | Result |
-
+| Evaluation Metric | Result |
 |---|---:|
-
 | Ground Truth Cases | 30,000 |
-
 | True Positives | 600 |
-
 | False Positives | 0 |
-
 | False Negatives | 0 |
-
 | True Negatives | 29,400 |
-
 | Precision | 100% |
-
 | Recall | 100% |
-
 | Accuracy | 100% |
 
+These results demonstrate correct identification of the deliberately constructed synthetic anomaly scenarios.
 
+**Evaluation limitation:** The results are based on controlled synthetic data. They do not establish equivalent performance on real-world lending data.
 
-These results demonstrate that the detection engine correctly identifies the deliberately constructed synthetic anomaly scenarios.
+## 9. Database Design
 
+The PostgreSQL database consists of 15 relational tables:
 
+| # | Table | Purpose |
+|---:|---|---|
+| 1 | applicants | Applicant personal and credit information |
+| 2 | employment | Employment details |
+| 3 | income_sources | Applicant income records |
+| 4 | loan_products | Loan product configurations |
+| 5 | loan_applications | Loan application information |
+| 6 | credit_facilities | Existing credit obligations |
+| 7 | application_documents | Application document verification |
+| 8 | affordability_checks | Affordability assessment results |
+| 9 | loan_decisions | Loan decision history |
+| 10 | repayment_schedules | Repayment schedule information |
+| 11 | repayment_installments | Individual repayment installments |
+| 12 | disbursements | Disbursement records |
+| 13 | anomaly_cases | Detected anomaly records |
+| 14 | ground_truth_anomalies | Expected anomaly labels |
+| 15 | audit_events | Audit event records |
 
-\*\*Evaluation limitation:\*\* These metrics are based on controlled synthetic data and should not be interpreted as evidence of equivalent performance on real-world lending data.
+**Database schema:** `database/schema.sql`
 
+**Data dictionary:** `docs/data_dictionary.md`
 
-
-\## 8. Database Design
-
-
-
-The PostgreSQL database contains 15 tables:
-
-
-
-1\. applicants
-
-2\. employment
-
-3\. income\_sources
-
-4\. loan\_products
-
-5\. loan\_applications
-
-6\. credit\_facilities
-
-7\. application\_documents
-
-8\. affordability\_checks
-
-9\. loan\_decisions
-
-10\. repayment\_schedules
-
-11\. repayment\_installments
-
-12\. disbursements
-
-13\. anomaly\_cases
-
-14\. ground\_truth\_anomalies
-
-15\. audit\_events
-
-
-
-Database schema: `database/schema.sql`
-
-
-
-Data dictionary: `docs/data\_dictionary.md`
-
-
-
-\## 9. Project Structure
-
-
+## 10. Project Structure
 
 ```text
-
 LoanIQ/
-
 │
-
 ├── backend/
-
 │   ├── models/
-
 │   ├── routes/
-
 │   ├── schemas/
-
 │   ├── services/
-
 │   ├── database.py
-
 │   └── main.py
-
 │
-
 ├── data/
-
 │   ├── generated/
-
-│   │   ├── \*.csv
-
+│   │   ├── *.csv
 │   │   └── manifest.json
-
-│   ├── generate\_dataset.py
-
-│   ├── validate\_dataset.py
-
-│   ├── load\_postgres.py
-
-│   ├── export\_json.py
-
-│   └── create\_data\_dictionary.py
-
+│   ├── generate_dataset.py
+│   ├── validate_dataset.py
+│   ├── load_postgres.py
+│   ├── export_json.py
+│   └── create_data_dictionary.py
 │
-
 ├── database/
-
 │   └── schema.sql
-
 │
-
 ├── docs/
-
-│   └── data\_dictionary.md
-
+│   └── data_dictionary.md
 │
-
 ├── frontend/
-
 │   ├── public/
-
 │   ├── src/
-
 │   │   ├── App.jsx
-
 │   │   ├── index.css
-
 │   │   └── main.jsx
-
 │   ├── package.json
-
 │   └── vite.config.js
-
 │
-
 ├── .env.example
-
 ├── .gitignore
-
 ├── requirements.txt
-
 └── README.md
-
 ```
 
+## 11. Installation & Execution
 
+### Prerequisites
 
-\## 10. Installation and Setup
+- Python 3.11+
+- Node.js and npm
+- PostgreSQL
+- Git
 
-
-
-\### Prerequisites
-
-
-
-\- Python 3.11 or later
-
-\- Node.js and npm
-
-\- PostgreSQL
-
-\- Git
-
-
-
-\### Step 1: Clone the Repository
-
-
+### Step 1: Clone the Repository
 
 ```bash
-
 git clone https://github.com/nehadoddi17/LoanIQ.git
-
 cd LoanIQ
-
 ```
 
-
-
-\### Step 2: Configure Python Environment
-
-
-
-```bash
-
-python -m venv .venv
-
-```
-
-
-
-Activate the environment.
-
-
-
-Windows PowerShell:
-
-
+### Step 2: Set Up Python Environment
 
 ```powershell
-
-.\\.venv\\Scripts\\Activate.ps1
-
-```
-
-
-
-Install dependencies:
-
-
-
-```bash
-
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-
 ```
 
+### Step 3: Configure Environment Variables
 
-
-\### Step 3: Configure Environment Variables
-
-
-
-Create a `.env` file in the project root using `.env.example` as a reference.
-
-
+Create a `.env` file in the project root using `.env.example` as a template.
 
 Configure your PostgreSQL connection:
 
-
-
 ```env
-
-DATABASE\_URL=postgresql+psycopg2://postgres:YOUR\_PASSWORD@localhost:5432/loaniq
-
+DATABASE_URL=postgresql+psycopg2://postgres:YOUR_PASSWORD@localhost:5432/loaniq
 ```
 
+Replace the placeholder with your local database credentials. Never commit the actual `.env` file.
 
-
-Use your own database credentials. Never commit `.env` or expose database passwords.
-
-
-
-\### Step 4: Create the Database
-
-
+### Step 4: Create the Database
 
 Create a PostgreSQL database named `loaniq`.
 
-
-
 Execute the schema:
 
+```powershell
+psql -U postgres -d loaniq -f database/schema.sql
+```
 
+### Step 5: Generate Synthetic Data
 
 ```powershell
-
-psql -U postgres -d loaniq -f database/schema.sql
-
+python data/generate_dataset.py
 ```
 
+### Step 6: Validate the Dataset
 
-
-\### Step 5: Generate Synthetic Data
-
-
-
-From the project root:
-
-
-
-```bash
-
-python data/generate\_dataset.py
-
+```powershell
+python data/validate_dataset.py
 ```
 
+Latest validation result: **63 passed, 0 failed.**
 
+### Step 7: Load Data into PostgreSQL
 
-\### Step 6: Validate the Dataset
-
-
-
-```bash
-
-python data/validate\_dataset.py
-
+```powershell
+python data/load_postgres.py
 ```
 
+**Important:** The loader is designed for a fresh database with the schema already created. Use a clean database for a new load rather than running it repeatedly against populated tables.
 
+### Step 8: Start FastAPI Backend
 
-\### Step 7: Load Data into PostgreSQL
-
-
-
-Use a fresh, empty database with the schema already created.
-
-
-
-```bash
-
-python data/load\_postgres.py
-
-```
-
-
-
-The loader populates the operational tables and ground-truth labels.
-
-
-
-\*\*Note:\*\* The loader is designed for a fresh database. Do not run it repeatedly against an already populated database without resetting it.
-
-
-
-\### Step 8: Start the Backend
-
-
-
-```bash
-
+```powershell
 uvicorn backend.main:app --reload
-
 ```
 
-
-
-Backend:
-
-
+Backend URL:
 
 `http://127.0.0.1:8000`
 
-
-
 Interactive API documentation:
-
-
 
 `http://127.0.0.1:8000/docs`
 
+### Step 9: Start React Frontend
 
+Open a second terminal:
 
-\### Step 9: Start the Frontend
-
-
-
-Open another terminal:
-
-
-
-```bash
-
+```powershell
 cd frontend
-
 npm install
-
 npm run dev
-
 ```
 
-
-
-Frontend:
-
-
+Frontend URL:
 
 `http://localhost:5173`
 
-
-
-Configure the frontend API URL in `frontend/.env.local`:
-
-
+Create `frontend/.env.local`:
 
 ```env
-
-VITE\_API\_BASE\_URL=http://127.0.0.1:8000
-
+VITE_API_BASE_URL=http://127.0.0.1:8000
 ```
 
+Ensure FastAPI CORS configuration permits the frontend origin.
 
+## 12. API Reference
 
-Ensure the FastAPI CORS configuration allows your frontend origin.
-
-
-
-\## 11. API Endpoints
-
-
-
-The platform exposes REST APIs for its major lending workflows.
-
-
+The backend exposes REST APIs for lending operations.
 
 | Module | Endpoint | Method |
-
 |---|---|---|
-
-| Health | `/api/health` | GET |
-
+| Health Check | `/api/health` | GET |
 | Applicants | `/api/applicants/` | GET, POST |
-
-| Applicant Details | `/api/applicants/{applicant\_id}` | GET |
-
-| Applications | `/api/applications/` | GET |
-
+| Applicant Details | `/api/applicants/{applicant_id}` | GET |
+| Loan Applications | `/api/applications/` | GET |
 | Anomaly Scan | `/api/anomalies/scan` | POST |
-
 | Anomaly Records | `/api/anomalies/` | GET |
-
-| Application Anomalies | `/api/anomalies/{application\_id}` | GET |
-
+| Application Anomalies | `/api/anomalies/{application_id}` | GET |
 | Evaluation Metrics | `/api/anomaly-evaluation/metrics` | GET |
 
+Additional APIs support loan products, employment, income sources, credit facilities, application documents, affordability checks, loan decisions, repayment schedules and disbursement records.
 
-
-Additional endpoints support loan products, employment, income sources, credit facilities, documents, affordability, decisions, repayment schedules, and disbursements.
-
-
-
-For complete request and response schemas, visit:
-
-
+For complete endpoint documentation, request schemas and response examples, visit:
 
 `http://127.0.0.1:8000/docs`
 
+## 13. Data Reproducibility & Validation
 
+The data generation pipeline supports reproducible dataset creation and validation.
 
-\## 12. Reproducibility and Data Exports
+Available scripts:
 
+| Script | Purpose |
+|---|---|
+| `generate_dataset.py` | Generates synthetic lending data |
+| `validate_dataset.py` | Validates records and business rules |
+| `load_postgres.py` | Loads generated data into PostgreSQL |
+| `export_json.py` | Exports datasets into JSONL |
+| `create_data_dictionary.py` | Generates database documentation |
 
+The generated manifest records file sizes and SHA-256 checksums for CSV exports.
 
-The project supports reproducible synthetic data generation and data validation.
+## 14. Security & Responsible Lending
 
+LoanIQ is a technical demonstration using synthetic data.
 
+Key considerations:
 
-Available outputs include:
+- Database credentials are maintained in environment variables.
+- The frontend does not access PostgreSQL directly.
+- Loan decisions use deterministic business rules.
+- Anomaly detection supports investigation rather than automatically declaring fraud.
+- Disbursement records are simulated.
+- Synthetic evaluation metrics are not presented as real-world performance.
+- Human review remains important for consequential lending decisions.
 
+## 15. Future Enhancements
 
+Potential improvements include:
 
-\- CSV datasets.
+- AI-powered lending policy assistant.
+- Retrieval-Augmented Generation (RAG) for policy documentation.
+- Explainable anomaly investigation.
+- Interactive applicant and loan application detail views.
+- Advanced lending portfolio analytics.
+- Authentication and role-based access control.
+- Audit trail visualization.
+- Cloud deployment and CI/CD integration.
+- External credit bureau and document verification integrations.
 
-\- JSONL exports.
+## 16. Repository
 
-\- PostgreSQL schema.
+**GitHub:** https://github.com/nehadoddi17/LoanIQ
 
-\- Dataset manifest.
+---
 
-\- SHA-256 file checksums.
-
-\- Data dictionary.
-
-
-
-JSONL exports can be generated using:
-
-
-
-```bash
-
-python data/export\_json.py
-
-```
-
-
-
-The manifest can be refreshed using:
-
-
-
-```bash
-
-python -c "from data.generate\_dataset import refresh\_manifest\_from\_existing\_csvs; refresh\_manifest\_from\_existing\_csvs()"
-
-```
-
-
-
-Large duplicate exports are excluded from GitHub to keep the repository manageable. The generated CSV dataset is retained.
-
-
-
-\## 13. Security and Responsible Lending
-
-
-
-LoanIQ is a demonstration platform using synthetic data.
-
-
-
-Key design considerations:
-
-
-
-\- Database credentials are stored in environment variables.
-
-\- The frontend does not directly access PostgreSQL.
-
-\- Loan decisions use deterministic business rules.
-
-\- Anomaly detection supports investigation and review.
-
-\- Disbursement is simulated.
-
-\- Synthetic evaluation metrics are not presented as real-world model performance.
-
-
-
-The platform is not intended to replace regulatory, legal, credit-risk, or human review processes.
-
-
-
-\## 14. Future Enhancements
-
-
-
-Potential future improvements include:
-
-
-
-\- AI-powered loan policy assistant.
-
-\- Retrieval-Augmented Generation (RAG) for lending policy documentation.
-
-\- Explainable anomaly investigation.
-
-\- Interactive applicant and application detail pages.
-
-\- Advanced portfolio analytics.
-
-\- Authentication and role-based access control.
-
-\- Audit trail visualization.
-
-\- Cloud deployment and CI/CD.
-
-\- Integration with external credit bureaus and document verification services.
-
-
-
-\## 15. Demo Workflow
-
-
-
-A typical LoanIQ demonstration can follow this sequence:
-
-
-
-1\. Open the lending operations dashboard.
-
-2\. Explore registered applicants.
-
-3\. Review loan applications and product eligibility.
-
-4\. Examine document verification.
-
-5\. Run affordability calculations.
-
-6\. Evaluate loan decisions.
-
-7\. Generate repayment schedules.
-
-8\. Review simulated disbursement records.
-
-9\. Run the anomaly detection engine.
-
-10\. Compare detection results with ground-truth metrics.
-
-
-
-\## 16. Repository
-
-
-
-\*\*GitHub:\*\* https://github.com/nehadoddi17/LoanIQ
-
-
-
-\---
-
-
-
-\## License
-
-
-
-This project is developed as a hackathon and technical demonstration project. A formal open-source license can be added separately.
-
-
-
-\---
-
-
-
-\*\*LoanIQ — Making Lending Operations More Transparent, Automated, and Risk-Aware.\*\*
-
+**LoanIQ — Intelligent Lending Operations with Built-in Risk Intelligence.**
