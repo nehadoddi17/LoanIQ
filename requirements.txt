@@ -1,0 +1,31 @@
+
+# Backend
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+python-dotenv
+python-multipart
+
+# Database
+sqlalchemy
+psycopg2-binary
+alembic
+
+# AI
+openai
+
+# Frontend
+streamlit
+plotly
+
+# Data processing
+pandas
+numpy
+httpx
+
+# Testing
+pytest
+
+
+

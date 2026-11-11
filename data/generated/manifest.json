@@ -1,0 +1,72 @@
+{
+    "project": "LoanIQ",
+    "generator_version": "2.1",
+    "random_seed": 42,
+    "applicant_count": 10000,
+    "application_count": 6000,
+    "anomaly_types": [
+        "INVALID_LOAN_TENURE",
+        "SCHEDULE_RECONCILIATION_MISMATCH",
+        "DECISION_BEFORE_REQUIRED_CHECKS",
+        "INCOME_SOURCE_CONFLICT",
+        "DUPLICATE_DISBURSEMENT"
+    ],
+    "anomaly_cases_per_type": 120,
+    "record_counts": {
+        "affordability_checks": 6000,
+        "anomaly_cases": 600,
+        "applicants": 10000,
+        "application_documents": 24000,
+        "credit_facilities": 6000,
+        "disbursements": 6120,
+        "employment": 10000,
+        "ground_truth": 600,
+        "income_sources": 10120,
+        "loan_applications": 6000,
+        "loan_decisions": 6000,
+        "loan_products": 4,
+        "repayment_installments": 589395,
+        "repayment_schedules": 6000
+    },
+    "file_checksums_sha256": {
+        "affordability_checks.csv": "b71da99b61f3e99ea3850c7ea9cd06e4e610ba342abdfaf95f09ae4bfdf03272",
+        "anomaly_cases.csv": "4df50f2cb537fe1dbc2eafbb78ca003470bb132a6d8f9cceb9eea463e61458bb",
+        "applicants.csv": "d89131eb009669f093ae0a6b6d565124a8713cf15a948aa36d7a6691b27b0a46",
+        "application_documents.csv": "cd375d3b1e012074f23b2f85defa868c6420b0ec39474ab1d38ba40cd4f4d010",
+        "credit_facilities.csv": "2e83f7b183a9966daf018d80117f1defe53e094c7a8f407f02d61f59878e7534",
+        "disbursements.csv": "e02082ae228f00efec03955c516abff59da283bd3c0f945644ae6aa5af6dcbec",
+        "employment.csv": "306429ae0867e34f9927aa2675d585df31eaf9701c08abfadee1d1020cc119bf",
+        "ground_truth.csv": "f5380d8ae9bc5f14b36ab7d45e2d33b6b89f21d37861e9c064b77a0d2ddc5fee",
+        "income_sources.csv": "e1bf8b0970a805bf5757fd9e66913bf0a872a1871168ebccadb5d9c708e4b66f",
+        "loan_applications.csv": "f4be38b216ac172bd21c57293d6945e8c3f20c8bad14c2ac4179587767037249",
+        "loan_decisions.csv": "0f921180c3095f02d26124b5f5f9b0962fefbaaab5aea37984dede693cece660",
+        "loan_products.csv": "70ec96f9a15b7f62784082392a683509942b89dd33faff9363472f763d6e4efc",
+        "repayment_installments.csv": "a9acbe73749162deb0e887121c2af514b87726b1de8ff535362e541f8331d80d",
+        "repayment_schedules.csv": "0f20367be8128eaa3a03978a8876c5a6bfd082ee9e140cfb004958f7921b96f2"
+    },
+    "file_sizes_bytes": {
+        "affordability_checks.csv": 535460,
+        "anomaly_cases.csv": 80713,
+        "applicants.csv": 1240044,
+        "application_documents.csv": 2738496,
+        "credit_facilities.csv": 510119,
+        "disbursements.csv": 474901,
+        "employment.csv": 718536,
+        "ground_truth.csv": 77113,
+        "income_sources.csv": 641774,
+        "loan_applications.csv": 299600,
+        "loan_decisions.csv": 718987,
+        "loan_products.csv": 362,
+        "repayment_installments.csv": 43667597,
+        "repayment_schedules.csv": 577467
+    },
+    "notes": [
+        "Synthetic demonstration data only",
+        "Disbursements are simulated records",
+        "No real customer or financial information",
+        "Generated CSV ground truth contains 600 positive labelled scenarios",
+        "Database evaluation ground truth contains 30000 application-anomaly combinations",
+        "Database evaluation includes 600 positive and 29400 negative labels",
+        "SHA-256 checksums are calculated for generated CSV files"
+    ]
+}
